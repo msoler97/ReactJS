@@ -1,7 +1,9 @@
+import NavBar from "./components/navBar";
+
 function App() {
   return (
     <div className="App">
-     <h1> Mi primer app en ReactJS </h1>
+      <NavBar />
     </div>
   );
 }
