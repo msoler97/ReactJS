@@ -1,11 +1,11 @@
-import NavBar from "./components/navBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer.js";
+import NavBar from "./components/NavBar/NavBar.js";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <NavBar />
+      <NavBar/>
+      <ItemListContainer greeting={'HOLA MUNDO'}/>
     </div>
   );
 }
-
-export default App;
