@@ -1,3 +1,5 @@
+import ItemCount from "../ItemCount/ItemCount.js"
+
 let containerStyles={
     textAlign: 'center',
     fontFamily: 'sans-serif',
@@ -12,6 +14,7 @@ export default function ItemListContainer({greeting}) {
     return (
         <div style={containerStyles}>
             {greeting}
+            <ItemCount/>
         </div>
     )
 }
