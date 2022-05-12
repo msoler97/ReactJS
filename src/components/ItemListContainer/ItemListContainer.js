@@ -1,4 +1,6 @@
-import ItemCount from "../ItemCount/ItemCount.js"
+//import ItemCount from "../ItemCount/ItemCount.js"
+import ItemList from "../ItemList/ItemList.js"
+import {products} from "../../data/Productos.js"
 
 let containerStyles={
     textAlign: 'center',
@@ -11,10 +13,19 @@ let containerStyles={
 }    
 
 export default function ItemListContainer({greeting}) {
+    const task = new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            resolve(products);
+        }, 2000)
+    })
+    task.then((result) => {
+        console.log(result)
+      })
     return (
         <div style={containerStyles}>
-            {greeting}
-            <ItemCount/>
+            {/* {greeting} */}
+            <ItemList/>
+            {/* <ItemCount/> */}
         </div>
     )
 }
