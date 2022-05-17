@@ -4,7 +4,7 @@ export const products = [
         title: "Producto 1" ,
         stock: "5",
         price: "$800",
-        image: "",
+        image: "../../assets/producto1.jpeg",
     },
     {
         id: "2",

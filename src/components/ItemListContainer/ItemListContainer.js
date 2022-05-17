@@ -29,14 +29,6 @@ export default function ItemListContainer({greeting}) {
         console.log(`Agregaste ${quantity} items al carrito`)
     }
 
-    // const task = new Promise ((resolve, reject) => {
-    //     setTimeout(() => {
-    //         resolve(products);
-    //     }, 2000)
-    // })
-    //  task.then((result) => {
-    //     console.log(result)
-    //})
     return (
         <div style={containerStyles}>
             {/* {greeting} */}
