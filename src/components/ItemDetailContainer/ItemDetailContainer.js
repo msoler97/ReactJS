@@ -1,7 +1,7 @@
 import {useState, useEffect} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
 
-const product = {id: "1", title: "Producto 1" , stock: "5", price: "$800", image: "../../assets/producto1.jpeg" }
+const product = {id: "1", title: "Producto 1" , stock: "5", price: "$800", image: "https://i.postimg.cc/5yktGD3t/producto1.jpg"}
 
 export default function ItemDetailContainer(){
     const [data, setData] = useState ({})
@@ -16,6 +16,8 @@ export default function ItemDetailContainer(){
     }, [])
 
     return(
+        <div>
     <ItemDetail data={data} />
+        </div>
     )    
 }

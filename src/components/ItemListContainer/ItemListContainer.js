@@ -31,8 +31,8 @@ export default function ItemListContainer({greeting}) {
 
     return (
         <div style={containerStyles}>
-            {/* {greeting} */}
-            <ItemCount initial={1} stock={5} onAdd={onAdd}/> 
+            {greeting}
+            <ItemCount initial={1} stock={data.stock} onAdd={onAdd}/> 
             <ItemList data={data}/>
         </div>
     )
