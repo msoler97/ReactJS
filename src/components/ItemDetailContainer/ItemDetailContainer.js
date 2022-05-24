@@ -14,6 +14,7 @@ export default function ItemDetailContainer(){
         })
         getData.then(res => setData(res))
     }, [])
+    
 
     return(
         <div>

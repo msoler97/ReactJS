@@ -1,4 +1,3 @@
-import ItemCount from "../ItemCount/ItemCount.js"
 import ItemList from "../ItemList/ItemList.js"
 import {products} from "../../data/Productos.js"
 import {useState, useEffect} from "react"
@@ -25,14 +24,9 @@ export default function ItemListContainer({greeting}) {
         getData.then(res => setData(res))
     }, [])
 
-    const onAdd = (quantity) => {
-        console.log(`Agregaste ${quantity} items al carrito`)
-    }
-
     return (
         <div style={containerStyles}>
-            {greeting}
-            <ItemCount initial={1} stock={data.stock} onAdd={onAdd}/> 
+            {greeting} 
             <ItemList data={data}/>
         </div>
     )
