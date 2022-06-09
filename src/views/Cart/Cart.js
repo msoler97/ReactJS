@@ -1,6 +1,7 @@
-import ItemDetailContainer from "../../components/ItemDetailContainer/ItemDetailContainer";
+import Cart from "../../components/Cart/Cart"
 
-
-export default function Cart() {
-    
+export default function CartView() {
+    return(
+        <Cart/>
+    )
 }

@@ -1,4 +1,5 @@
 import { BsCart2 } from 'react-icons/bs'
+import { useCartContext } from '../../context/CartContext'
 
 let cartStyles = {
     color: 'white',
@@ -10,10 +11,11 @@ let iconStyles = {
 }
 
 export default function CartIcon({count}){
+    const {totalProducts} = useCartContext()
     return (
         <div style={cartStyles}>
             <BsCart2 style={iconStyles}/>
-            {count}
+            <span>{totalProducts() || ""}</span>
         </div>
     )
         

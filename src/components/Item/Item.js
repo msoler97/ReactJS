@@ -1,6 +1,7 @@
 import {Card, Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
+
 export default function Item({info}) {
   const productRoute = `/details/${info.id}`
     return(

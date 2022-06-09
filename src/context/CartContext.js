@@ -7,6 +7,13 @@ export const useCartContext = () => useContext(CartContext)
 export const CartProvider = ({children}) => {
     const [cart, setCart] = React.useState([])
 
+    const totalPrice  = () => {
+        
+        return cart.reduce((prev, act) => prev + act.quantity * act.price, 0)
+    }
+    
+    const totalProducts = () => cart.reduce((total, currentProduct) => total + currentProduct.quantity, 0)
+
     const addToCart = (item, newQuantity) => {
         const newCart = cart.filter(product => product.id !== item.id)
         newCart.push({...item, quantity: newQuantity})
@@ -23,6 +30,9 @@ export const CartProvider = ({children}) => {
             addToCart,
             removeFromCart,
             clearCart,
+            totalPrice,
+            totalProducts,
+            cart,
         }}>{children}</CartContext.Provider>
     )
 
