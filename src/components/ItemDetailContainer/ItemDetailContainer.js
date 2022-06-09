@@ -1,19 +1,28 @@
 import {useState, useEffect} from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import { products } from "../../data/Productos";
 
-const product = {id: "1", title: "Producto 1" , stock: "5", price: "$800", image: "https://i.postimg.cc/5yktGD3t/producto1.jpg"}
-
-export default function ItemDetailContainer(){
+export default function ItemDetailContainer({productId}){
     const [data, setData] = useState ({})
 
+    // useEffect (()=> {
+    //     const getData = new Promise (resolve => {
+    //         setTimeout(() => {
+    //             resolve(products)
+    //         }, 2000)
+    //     })
+    //     getData.then(res => setData(res))
+    // }, [])
+    
     useEffect (()=> {
+        // setData(products.find(data => data.id === productId))
         const getData = new Promise (resolve => {
             setTimeout(() => {
-                resolve(product)
+                resolve(products.find(data => data.id))
             }, 2000)
         })
-        getData.then(res => setData(res))
-    }, [])
+        getData.then(res => setData(res) === productId)
+    }, [productId])
     
 
     return(
