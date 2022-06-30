@@ -2,6 +2,9 @@ import ItemListContainer from "../../components/ItemListContainer/ItemListContai
 
 export default function Products() {
     return(
-    <ItemListContainer/>
+    <div>
+        <h1> Todos los productos </h1>
+        <ItemListContainer/>
+    </div>
     )
 }

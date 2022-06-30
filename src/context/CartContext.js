@@ -19,7 +19,6 @@ export const CartProvider = ({children}) => {
         newCart.push({...item, quantity: newQuantity})
         setCart(newCart)
     }
-    console.log('carrito:', cart)
 
     const removeFromCart = (id) => {setCart(cart.filter(product => product.id !== id))}
 

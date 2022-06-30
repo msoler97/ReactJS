@@ -1,0 +1,20 @@
+.Navbar-links{
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+        a{
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: whitesmoke;
+                :link, :visited{
+                    text-decoration: none;
+                    list-style: none;
+                }
+                :hover{
+                    text-decoration: none;
+                    list-style: none;
+                }
+        }
+}

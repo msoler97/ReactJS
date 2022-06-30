@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount.js"
 import { useCartContext } from "../../context/CartContext.js";
 import { useState } from "react";
+import { Button } from "react-bootstrap";
 
 export default function ItemDetail({data}){
 
@@ -14,13 +15,16 @@ export default function ItemDetail({data}){
     }
 
     return(
-        <div>
-            <img src={data.image} alt={data.title}/>
-            <h1> {data.title} </h1>
-            <p> {`Precio: ${data.price}`} </p>
+        <div className="itemDetail">
+            <div>
+                <img src={data.image} alt={data.title}/>
+                <h2> {data.title} </h2>
+                <p> {`Precio: ${data.price}`} </p>
+                <p> {data.details} </p>
+            </div>
             {
                 goToCart
-                ? <Link to={'/cart'}>Finalizar compra</Link>
+                ? <Button variant="dark"> <Link to={'/cart'} className='goToCartButton'>Finalizar compra</Link> </Button>
                 :<ItemCount initial={1} stock={data.stock} onAdd={onAdd}/>
             }       
 

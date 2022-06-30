@@ -1,32 +1,29 @@
 import ItemList from "../ItemList/ItemList.js"
-import {products} from "../../data/Productos.js"
 import {useState, useEffect} from "react"
+import { getFirestore, collection, getDocs, query, where } from "firebase/firestore"
 
-let containerStyles={
-    textAlign: 'center',
-    fontFamily: 'sans-serif',
-    fontWeight: 'bolder',
-    borderColor: 'black',
-    borderStyle: 'double',
-    backgroundColor: 'grey',
-    fontSize: 'larger'
-}    
-
-export default function ItemListContainer({greeting}) {
+export default function ItemListContainer({category}) {
     const [data, setData] = useState([])
-
+    
     useEffect (()=> {
-        const getData = new Promise (resolve => {
-            setTimeout(() => {
-                resolve(products)
-            }, 2000)
-        })
-        getData.then(res => setData(res))
-    }, [])
+        const querydb = getFirestore()
+        const queryCollection = collection(querydb, 'productos')
+        
+        if(category){
+            category = parseInt(category)
+            const queryFilter = query(queryCollection, where('category_id', '==', category))
+            getDocs(queryFilter)
+                .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+            }
+            
+            else{
+            getDocs(queryCollection)
+                .then(res => setData(res.docs.map(product => ({id: product.id, ...product.data()}))))
+            }
+     },[category])
 
     return (
-        <div style={containerStyles}>
-            {greeting} 
+        <div className='containerStyles'>
             <ItemList data={data}/>
         </div>
     )
